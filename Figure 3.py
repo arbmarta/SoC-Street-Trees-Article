@@ -130,7 +130,11 @@ for i, metric in enumerate(metrics):
     # Add ecozone color legend
     from matplotlib.patches import Patch
     legend_handles = [Patch(color=color, label=ecozone) for ecozone, color in ecozone_colors.items()]
-    plt.legend(handles=legend_handles, loc='upper left', frameon=False)
-
+    plt.legend(handles=legend_handles, loc='upper left', frameon=False, fontsize='small')
     plt.tight_layout()
+
+    # Save figure
+    filename = f"Lorenz_{metric.replace(' ', '_')}.png"
+    plt.savefig(filename, dpi=300, bbox_inches='tight')
+
     plt.show()
